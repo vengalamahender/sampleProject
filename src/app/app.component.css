@@ -1,0 +1,28 @@
+
+
+
+.hederNav .nav-item {
+    margin-left:10px; 
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0px 10px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.1;
+    color: #495057;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s
+  }
+  .form-control{
+    margin-left: 20px;
+  }
+  .content{
+    width:1024px;
+    margin: 0 auto;
+  } 
+  .maincontent{
+    border: 1px solid #ced4da;
+  }
+  .rightContent{
+    border-left: 1px solid #ced4da;
+  }

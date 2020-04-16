@@ -1,0 +1,85 @@
+<div class="toolbar bg-light content" role="banner">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto hederNav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="box">box</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="getdeleteListdata()">Delete</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="getallListdata()">Add</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="editItem()">edit</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input
+          class="form-control mr-sm-2 fa-search"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button class="btn" type="submit">
+          <i class="fa fa-angle-double-right fa-3x"></i>
+        </button>
+      </form>
+    </div>
+  </nav>
+  <div class=" maincontent" role="main">
+    <div class="row">
+      <div class="col-md-5 mb-3">
+        <ul class="nav nav-pills flex-column" id="myTab" role="tablist">
+          <li
+            class="nav-item nav-link"
+            [ngStyle]="{
+              background:
+                this.selectedValue.id == item.id ? 'khaki' : 'gainsboro'
+            }"
+            *ngFor="let item of listedFeatures; ;let i = index"
+          >
+            <a class="nav-link" id="{{ i }}" (click)="clicklistselected(item)"
+              >{{ i + 1 }}) {{ item.item }}
+            </a>
+            <!-- <span>{{ moment(now).format("MMMM DD,YYYY  HH:mm A") }}</span> -->
+            <span style="margin-left: 10%;">{{ getTime() }}</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- /.col-md-4 -->
+      <div class="col-md-7 rightContent">
+        <textarea
+          [(ngModel)]="listItem"
+          *ngIf="show; else elseBlock"
+          (change)="listItemdata(listItem)"
+        ></textarea>
+        <ng-template #elseBlock>{{ textareaitem }}</ng-template>
+
+        <!-- <textarea [(ngModel)]="listItem"></textarea>
+      <textarea >{{textareaitem}}</textarea> -->
+      </div>
+      <!-- <button (click)="buttonClickMe()">Add value</button> -->
+      <button (click)="removeClickMe()">Remove value</button>
+    </div>
+
+    <!-- /.container -->
+  </div>
+</div>
